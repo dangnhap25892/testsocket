@@ -17,6 +17,10 @@ io.on('connection', function(socket){
     io.emit('server-send-dangki-thanhcong', {username:data, id:socket.id});
   });	
 
+  socket.on('client_gui_message', function(data){
+    io.emit('server_gui_message', {username:data.username, msg:data});
+  });	
+
 
 });
   
