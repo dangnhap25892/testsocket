@@ -13,8 +13,16 @@
       #messages li:nth-child(odd) { background: #eee; }
       #messages { margin-bottom: 40px }
     </style>
+    <style>
+    #toggle {
+      width: 100px;
+      height: 100px;
+      background: #ccc;
+    }
+    </style>
   </head>
   <body>
+    <!-- new-->
     <div id="wrapper">
       <h1>DEMO CHAT SOCKET IO - NODEJS</h1>
       <input type="text" id="txtUser" placeholder="Username" />
@@ -31,6 +39,7 @@
         <input type="button" id="btnChat" value="Chat" />
       </div>
     </div>
+    <!-- new-->
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
@@ -40,6 +49,42 @@
     <script>
       $(function () {
         var socket = io();
+
+        //new
+        socket.on("server-send-dangki-thatbai", function(data){
+      alert("User " + data + " is not availble!");
+    });
+    socket.on("server-send-dangki-thanhcong", function(data){
+      var s = "<div socketid='"+data.id+"' class='motUser'>" + data.username + "</div>";
+      $("#danhsachUsersOnline").append(s);
+      //hide form dang ki user
+    });
+    socket.on("server_gui_message", function(data){
+      var hoten = "<span class='hoten'>" + data.Username + ": </span>";
+      var msg =  "<span class='msg'>" + data.msg + "</span>";
+      $("#dsMsg").append(hoten + msg + "<div class='block'></div>");
+    });
+    socket.on("server_xuly_chocgheo", function(data){
+      //alert(data + "vua moi choc ban :D");
+      $( "body" ).effect( "shake" );
+    });
+
+    $(document).ready(function(){
+      $("#btnDangki").click(function(){
+        socket.emit("client_gui_username", $("#txtUser").val());
+      });
+      $("#btnChat").click(function(){
+        socket.emit("client_gui_message", $("#txtMessage").val());
+        $("#txtMessage").val("");
+      });
+      $(document).on("click", ".motUser", function(){
+        var id = $(this).attr("socketid");
+        socket.emit("user-chocgheo-socketid-khac", id);
+      });
+    });
+
+
+        //new
         
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val());
