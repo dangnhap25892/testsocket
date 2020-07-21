@@ -14,7 +14,7 @@ io.on('connection', function(socket){
   //kiemtra login
  if (socket.Username == undefined)
   {
-    io.emit('login', 'đã không có');
+    socket.emit('login', 'đã không có');
 
   }
 
