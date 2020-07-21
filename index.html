@@ -154,13 +154,13 @@ h1{text-align: center}
       $("#kiemtralogin").show();
       var s = "<div socketid='"+data.id+"' class='motUser'>" + data.username + "</div>";
       $("#danhsachUsersOnline").append(s);
-  
+  /*
       // lỗi
       socket.on("server-send-dangki1", function(data){
       var s = "<div class='motUser'>" + data + "</div>";
       $("#danhsachUsersOnline").append(s);
 //lỗi
-
+*/
       //hide form dang ki user
     });
     socket.on("server_gui_message", function(data){
