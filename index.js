@@ -27,7 +27,7 @@ io.on('connection', function(socket){
 
 //new rom
 socket.on("tao-room", function(data){
-    socket.leave(data);
+    socket.leave(socket.Phong);
     socket.join(data);
     socket.Phong=data;
 
