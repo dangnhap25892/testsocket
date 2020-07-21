@@ -17,7 +17,7 @@ io.on('connection', function(socket){
     io.emit('login', 'đã không có');
 
   }
-
+/*
 //hiện người online
 	var mangUsersOnline = [];
 	for(r in socket.adapter.rooms){
@@ -26,7 +26,7 @@ io.on('connection', function(socket){
     io.sockets.emit("server-send-rooms", mangUsersOnline);
    // io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
 //hiện người online
-    
+    */
   socket.on('disconnect', function(){
     io.emit('chat message', 'đã thoát');
   });
