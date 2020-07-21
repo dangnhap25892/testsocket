@@ -19,7 +19,7 @@ io.on('connection', function(socket){
   });	
 
   socket.on('client_gui_message', function(data){
-    io.emit('server_gui_message', {username:data.Username, msg:data});
+    io.sockets.emit('server_gui_message', {username:data.Username, msg:data});
   });	
 
 
