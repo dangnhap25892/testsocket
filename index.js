@@ -25,7 +25,7 @@ socket.on("tao-room", function(data){
       mang.push(r);
     }
     io.sockets.emit("server-send-rooms", mang);
-    socket.emit("server-send-room-socket", data);
+    //socket.emit("server-send-room-socket", data);
 
   });
 
