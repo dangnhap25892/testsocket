@@ -73,8 +73,8 @@
       });
       $(document).on("click", ".motUser", function(){
         var id = $(this).attr("socketid");
-        alert(id);
-        //socket.emit("user-chocgheo-socketid-khac", id);
+        //alert(id);
+        socket.emit("user-chocgheo-socketid-khac", id);
       });
     });
 
