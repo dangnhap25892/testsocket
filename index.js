@@ -22,7 +22,7 @@ io.on('connection', function(socket){
 
 //new rom
 socket.on("tao-room", function(data){
-    socket.join(data);
+    //socket.join(data);
     socket.Phong=data;
 
     var mang=[];
