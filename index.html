@@ -158,8 +158,12 @@ h1{text-align: center}
   
       // lỗi
       socket.on("server-send-dangki", function(data){
+        var count = data.length;
+            if(count != 20)
+            {
       var s = "<div class='motUser'>" + data + "</div>";
       $("#danhsachUsersOnline").append(s);
+            }
       });
 //lỗi
 
