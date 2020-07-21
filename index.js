@@ -10,7 +10,12 @@ app.get('/', function(req, res){
 var mangUsersOnline = [];
 
 io.on('connection', function(socket){
-
+  var mang=[];
+    for(r in socket.adapter.rooms){
+      mang.push(r);
+    }
+    io.sockets.emit("server-send-rooms", mang);
+  
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
   });
@@ -24,7 +29,7 @@ socket.on("tao-room", function(data){
     for(r in socket.adapter.rooms){
       mang.push(r);
     }
-    io.sockets.emit("server-send-rooms", data);
+    io.sockets.emit("server-send-rooms", mang);
     socket.emit("server-send-room-socket", data);
 
   });
