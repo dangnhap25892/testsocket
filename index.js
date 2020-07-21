@@ -14,11 +14,12 @@ io.on('connection', function(socket){
 
 
   socket.on('client_gui_username', function(data){
+  	socket.Username = data;
     io.emit('server-send-dangki-thanhcong', {username:data, id:socket.id});
   });	
 
   socket.on('client_gui_message', function(data){
-    io.emit('server_gui_message', {username:data.username, msg:data});
+    io.emit('server_gui_message', {username:data.Username, msg:data});
   });	
 
 
