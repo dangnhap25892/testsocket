@@ -15,7 +15,7 @@ io.on('connection', function(socket){
     for(r in socket.adapter.rooms){
       mang.push(r);
     }
-    var count = mang.length;
+    var count = r.length;
     if(count != 20)
     {
       io.sockets.emit("server-send-rooms", mang);
