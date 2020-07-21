@@ -10,11 +10,18 @@ app.get('/', function(req, res){
 var mangUsersOnline = [];
 
 io.on('connection', function(socket){
+  
   var mang=[];
     for(r in socket.adapter.rooms){
       mang.push(r);
     }
-    io.sockets.emit("server-send-rooms", mang);
+    var count = mang.length;
+    if(count != 20)
+    {
+      io.sockets.emit("server-send-rooms", mang);
+    }
+    
+  
   
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
