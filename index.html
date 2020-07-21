@@ -38,6 +38,14 @@ h1{text-align: center}
   </head>
   <body>
 <!-- new room-->
+
+    <div id="login" >
+    <input type="text" id="txtUser" placeholder="Username" />
+      <input type="button" id="btnDangki" value="Dang ki"  />
+    </div>
+
+
+    <div id="kiemtralogin">
     <input type="text" id="txtRoom" />
     <input type="button" id="btnTaoRoom" value="Tạo room">
     <div id="left">
@@ -61,10 +69,13 @@ h1{text-align: center}
         <input type="text" id="txtMessage" placeholder="Message..." />
         <input type="button" id="btnChat" value="Chat" />
       </div>
+
+
+
+    </div>
       <!-- new room1-->
     <!--
     <div id="right">
-
     </div>
     <input type="text" id="txtMessage" />
     <input type="button" id="btnChat" value="Chat" />
@@ -173,9 +184,11 @@ h1{text-align: center}
           $('#m').val('');
           return false;
         });
-
-
-
+        //new login
+        socket.on('login', function(msg){
+          $("#kiemtralogin").hide();
+        });
+        //newloginj
         socket.on('chat message', function(msg){
           $('#messages').append($('<li>').text(msg));
           window.scrollTo(0, document.body.scrollHeight);

@@ -11,7 +11,11 @@ var mangUsersOnline = [];
 
 io.on('connection', function(socket){
   
- 
+ if (socket.Username == undefined)
+  {
+    io.emit('login', 'đã không có');
+
+  }
     
   socket.on('disconnect', function(){
     io.emit('chat message', 'đã thoát');
@@ -56,10 +60,7 @@ socket.on("tao-room", function(data){
 //new room
 socket.on("client_gui_message", function(data){
     
-     if (socket.Username == undefined)
-  {
-    io.emit('chat message', 'đã không có');
-  }
+     
   
     io.sockets.in(socket.Phong).emit("server_gui_message", {Username:socket.Username, msg:data});
   });
