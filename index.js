@@ -10,6 +10,11 @@ app.get('/', function(req, res){
 var mangUsersOnline = [];
 
 io.on('connection', function(socket){
+  
+  socket.on('disconnect', function(){
+    io.emit('chat message', 'đã thoát');
+  });
+  
   //hiện room
   var mang=[];
     for(r in socket.adapter.rooms){
