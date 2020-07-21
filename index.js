@@ -11,6 +11,11 @@ var mangUsersOnline = [];
 
 io.on('connection', function(socket){
   
+  if (socket.Username == undefined)
+  {
+    io.emit('chat message', 'đã không có');
+  }
+    
   socket.on('disconnect', function(){
     io.emit('chat message', 'đã thoát');
   });
