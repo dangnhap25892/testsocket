@@ -25,9 +25,11 @@ io.on('connection', function(socket){
       mangUsersOnline.push(r);
     }
     */
+	/*
     io.sockets.emit("server-send-dangki", mangUsersOnline);
    // io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
 //hiện người online
+	*/
     
   socket.on('disconnect', function(){
     io.emit('chat message', 'đã thoát');
