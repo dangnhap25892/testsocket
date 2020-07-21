@@ -55,7 +55,7 @@
       alert("User " + data + " is not availble!");
     });
     socket.on("server-send-dangki-thanhcong", function(data){
-      var s = "<div socketid='"+data.id+"' class='motUser'>" + data.username + "</div>";
+      var s = "<div socketid='"+data+"' class='motUser'>" + data + "</div>";
       $("#danhsachUsersOnline").append(s);
       //hide form dang ki user
     });
