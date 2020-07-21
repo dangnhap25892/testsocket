@@ -10,15 +10,21 @@ app.get('/', function(req, res){
 var mangUsersOnline = [];
 
 io.on('connection', function(socket){
-  //kiểm tra login
+  
+  //kiemtra login
  if (socket.Username == undefined)
   {
     io.emit('login', 'đã không có');
 
   }
-   //kiểm tra login
-  
-  
+
+//hiện người online
+	for(r in socket.adapter.rooms){
+      mangUsersOnline.push(r);
+    }
+    io.sockets.emit("server-send-rooms", mangUsersOnline);
+   // io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
+//hiện người online
     
   socket.on('disconnect', function(){
     io.emit('chat message', 'đã thoát');
@@ -32,11 +38,7 @@ io.on('connection', function(socket){
     
       io.sockets.emit("server-send-rooms", mang);
    //hiện room
-    //hiện người online
-	mangUsersOnline.push(data);
-    socket.Username = data;
-    io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
-  //hiện người online
+    
   
   
   socket.on('chat message', function(msg){
