@@ -41,10 +41,28 @@ h1{text-align: center}
     <input type="text" id="txtRoom" />
     <input type="button" id="btnTaoRoom" value="Tạo room">
     <div id="left">
+
       <h3>ROOMS ĐANG CÓ</h3>
       <div id="dsRoom"></div>
+<!-- new room1-->
+      <input type="text" id="txtUser" placeholder="Username" />
+      <input type="button" id="btnDangki" value="Dang ki"  />
+       <div id="title">Users Online</div>
+        <div id="danhsachUsersOnline"></div>
+      <!-- new room1-->
     </div>
     <h4 id="roomHienTai">...</h4>
+
+
+    <!-- new room1-->
+    <div id="right">
+        <div id="dsMsg"></div>
+        <div class="block"></div>
+        <input type="text" id="txtMessage" placeholder="Message..." />
+        <input type="button" id="btnChat" value="Chat" />
+      </div>
+      <!-- new room1-->
+    <!--
     <div id="right">
 
     </div>
@@ -116,7 +134,7 @@ h1{text-align: center}
 
         });
         //new room
-  /*
+  
         //new
         socket.on("server-send-dangki-thatbai", function(data){
       alert("User " + data + " is not availble!");
@@ -135,7 +153,6 @@ h1{text-align: center}
       //alert(data + "vua moi choc ban :D");
       $( "body" ).effect( "shake" );
     });
-
     $(document).ready(function(){
       $("#btnDangki").click(function(){
         socket.emit("client_gui_username", $("#txtUser").val());
@@ -149,10 +166,8 @@ h1{text-align: center}
         socket.emit("user-chocgheo-socketid-khac", id);
       });
     });
-
-
         //new
-        */
+        
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val());
           $('#m').val('');

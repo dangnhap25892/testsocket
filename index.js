@@ -10,14 +10,14 @@ app.get('/', function(req, res){
 var mangUsersOnline = [];
 
 io.on('connection', function(socket){
-  
+  //hiện room
   var mang=[];
     for(r in socket.adapter.rooms){
       mang.push(r);
     }
     
       io.sockets.emit("server-send-rooms", mang);
-    
+   //hiện room
     
   
   
@@ -46,6 +46,9 @@ socket.on("tao-room", function(data){
     io.sockets.in(socket.Phong).emit("server-chat", data);
   });
 //new room
+socket.on("client_gui_message", function(data){
+    io.sockets.in(socket.Phong).emit("server_gui_message", {Username:socket.Username, msg:data});
+  });
 
 
   
