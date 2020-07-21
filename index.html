@@ -53,8 +53,6 @@ h1{text-align: center}
       <h3>ROOMS ĐANG CÓ</h3>
       <div id="dsRoom"></div>
 <!-- new room1-->
-      <input type="text" id="txtUser" placeholder="Username" />
-      <input type="button" id="btnDangki" value="Dang ki"  />
        <div id="title">Users Online</div>
         <div id="danhsachUsersOnline"></div>
       <!-- new room1-->
@@ -152,6 +150,7 @@ h1{text-align: center}
     });
     socket.on("server-send-dangki-thanhcong", function(data){
       $("#kiemtralogin").show();
+      $("#login").hide();
       var s = "<div socketid='"+data.id+"' class='motUser'>" + data.username + "</div>";
       $("#danhsachUsersOnline").append(s);
       //hide form dang ki user
