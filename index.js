@@ -19,6 +19,7 @@ io.on('connection', function(socket){
   }
 
 //hiện người online
+	var mangUsersOnline = [];
 	for(r in socket.adapter.rooms){
       mangUsersOnline.push(r);
     }
