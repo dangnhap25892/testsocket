@@ -13,14 +13,25 @@ io.on('connection', function(socket){
   });
 
 
-  socket.on('client_gui_username', function(data){
-  	socket.Username = data;
-    io.emit('server-send-dangki-thanhcong', {username:data, id:socket.id});
-  });	
+  
+  socket.on("client_gui_username", function(data){
+    console.log("Co nguoi dang ki username la: " + data);
+    if( mangUsersOnline.indexOf(data)>=0){
+      socket.emit("server-send-dangki-thatbai", data);
+    }else{
+      mangUsersOnline.push(data);
+      socket.Username = data;
+      io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
+    }
+  });
 
-  socket.on('client_gui_message', function(data){
-    io.sockets.emit('server_gui_message', {username:data.Username, msg:data});
-  });	
+  socket.on("client_gui_message", function(data){
+    io.sockets.emit("server_gui_message", {Username:socket.Username, msg:data});
+  });
+
+  socket.on("user-chocgheo-socketid-khac", function(data){
+    io.to(data).emit("server_xuly_chocgheo", socket.Username);
+  })
 
 
 });
