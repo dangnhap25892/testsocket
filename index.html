@@ -84,9 +84,9 @@ h1{text-align: center}
 
         //bew rôm
         socket.on("server-send-rooms", function(data){
-        
+        $("#dsRoom").html("");
         data.map(function(r){
-          $("#dsRoom").html("");
+          
           $("#dsRoom").append("<h4 class='room'>" + r + "</h4>");
         });
         });
