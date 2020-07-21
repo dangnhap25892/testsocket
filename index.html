@@ -15,6 +15,22 @@
     </style>
   </head>
   <body>
+    <div id="wrapper">
+      <h1>DEMO CHAT SOCKET IO - NODEJS</h1>
+      <input type="text" id="txtUser" placeholder="Username" />
+      <input type="button" id="btnDangki" value="Dang ki"  />
+      <div class="block"></div>
+      <div id="left">
+        <div id="title">Users Online</div>
+        <div id="danhsachUsersOnline"></div>
+      </div>
+      <div id="right">
+        <div id="dsMsg"></div>
+        <div class="block"></div>
+        <input type="text" id="txtMessage" placeholder="Message..." />
+        <input type="button" id="btnChat" value="Chat" />
+      </div>
+    </div>
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
@@ -24,15 +40,20 @@
     <script>
       $(function () {
         var socket = io();
+        
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val());
           $('#m').val('');
           return false;
         });
+
+
+
         socket.on('chat message', function(msg){
           $('#messages').append($('<li>').text(msg));
           window.scrollTo(0, document.body.scrollHeight);
         });
+
       });
     </script>
   </body>
