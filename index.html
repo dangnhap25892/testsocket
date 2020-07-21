@@ -85,10 +85,15 @@ h1{text-align: center}
         //bew rôm
         socket.on("server-send-rooms", function(data){
         $("#dsRoom").html("");
-        data.map(function(r){
           
+        data.map(function(r){
+          var count = r.length;
+            if(count != 20)
+            {
           $("#dsRoom").append("<h4 class='room'>" + r + "</h4>");
+            }
         });
+          
         });
 
         socket.on("server-send-room-socket", function(data){
