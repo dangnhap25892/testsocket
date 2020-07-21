@@ -88,7 +88,7 @@ socket.on("client_gui_message", function(data){
     }else{
       mangUsersOnline.push(data);
       socket.Username = data;
-      socket.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
+     io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
     }
   });
 /*
