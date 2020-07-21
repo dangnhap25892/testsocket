@@ -12,6 +12,12 @@ io.on('connection', function(socket){
     io.emit('chat message', msg);
   });
 });
+  socket.on('client_gui_username', function(data){
+    io.emit('server-send-dangki-thanhcong', data);
+  });
+
+
+
 
 http.listen(port, function(){
   console.log('listening on *:' + port);
