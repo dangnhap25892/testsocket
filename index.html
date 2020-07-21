@@ -13,13 +13,7 @@
       #messages li:nth-child(odd) { background: #eee; }
       #messages { margin-bottom: 40px }
     </style>
-    <style>
-    #toggle {
-      width: 100px;
-      height: 100px;
-      background: #ccc;
-    }
-    </style>
+    
   </head>
   <body>
     <!-- new-->
@@ -55,7 +49,7 @@
       alert("User " + data + " is not availble!");
     });
     socket.on("server-send-dangki-thanhcong", function(data){
-      var s = "<div socketid='"+data+"' class='motUser'>" + data + "</div>";
+      var s = "<div socketid='"+data.id+"' class='motUser'>" + data.username + "</div>";
       $("#danhsachUsersOnline").append(s);
       //hide form dang ki user
     });

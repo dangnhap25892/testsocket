@@ -14,7 +14,7 @@ io.on('connection', function(socket){
 
 
   socket.on('client_gui_username', function(data){
-    io.emit('server-send-dangki-thanhcong', data);
+    io.emit('server-send-dangki-thanhcong', {username:data, id:socket.id});
   });	
 
 
