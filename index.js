@@ -36,7 +36,13 @@ socket.on("tao-room", function(data){
     for(r in socket.adapter.rooms){
       mang.push(r);
     }
-    io.sockets.emit("server-send-rooms", mang);
+    var count = r.length;
+    if(count != 20)
+    {
+      io.sockets.emit("server-send-rooms", mang);
+    }
+  
+    //io.sockets.emit("server-send-rooms", mang);
     socket.emit("server-send-room-socket", data);
 
   });
