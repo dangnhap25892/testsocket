@@ -71,7 +71,7 @@
         socket.emit("client_gui_message", $("#txtMessage").val());
         $("#txtMessage").val("");
       });
-      $(document).on("click", "motUser", function(){
+      $(document).on("click", ".motUser", function(){
         var id = $(this).attr("socketid");
         alert(id);
         //socket.emit("user-chocgheo-socketid-khac", id);
