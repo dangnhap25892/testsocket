@@ -151,6 +151,7 @@ h1{text-align: center}
       alert("User " + data + " is not availble!");
     });
     socket.on("server-send-dangki-thanhcong", function(data){
+      $("#kiemtralogin").show();
       var s = "<div socketid='"+data.id+"' class='motUser'>" + data.username + "</div>";
       $("#danhsachUsersOnline").append(s);
       //hide form dang ki user
