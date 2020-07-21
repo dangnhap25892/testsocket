@@ -10,9 +10,29 @@ app.get('/', function(req, res){
 var mangUsersOnline = [];
 
 io.on('connection', function(socket){
+
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
   });
+
+//new rom
+socket.on("tao-room", function(data){
+    socket.join(data);
+    socket.Phong=data;
+
+    var mang=[];
+    for(r in socket.adapter.rooms){
+      mang.push(r);
+    }
+    io.sockets.emit("server-send-rooms", mang);
+    socket.emit("server-send-room-socket", data);
+
+  });
+
+  socket.on("user-chat", function(data){
+    io.sockets.in(socket.Phong).emit("server-chat", data);
+  });
+//new room
 
 
   
