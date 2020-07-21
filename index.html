@@ -37,6 +37,23 @@ h1{text-align: center}
     
   </head>
   <body>
+<!-- new room-->
+    <input type="text" id="txtRoom" />
+    <input type="button" id="btnTaoRoom" value="Tạo room">
+    <div id="left">
+      <h3>ROOMS ĐANG CÓ</h3>
+      <div id="dsRoom"></div>
+    </div>
+    <h4 id="roomHienTai">...</h4>
+    <div id="right">
+
+    </div>
+    <input type="text" id="txtMessage" />
+    <input type="button" id="btnChat" value="Chat" />
+<!-- new room-->
+
+
+
     <!-- new-->
     <div id="wrapper">
       <h1>DEMO CHAT SOCKET IO - NODEJS</h1>
@@ -65,6 +82,35 @@ h1{text-align: center}
       $(function () {
         var socket = io();
 
+        //bew rôm
+        socket.on("server-send-rooms", function(data){
+        $("#dsRoom").html("");
+        data.map(function(r){
+          $("#dsRoom").append("<h4 class='room'>" + r + "</h4>");
+        });
+        });
+
+        socket.on("server-send-room-socket", function(data){
+          $("#roomHienTai").html(data);
+        });
+
+        socket.on("server-chat", function(data){
+          $("#right").append("<div>" + data + "</div>");
+        });
+
+        $(document).ready(function(){
+
+          $("#btnTaoRoom").click(function(){
+            socket.emit("tao-room", $("#txtRoom").val());
+          });
+
+          $("#btnChat").click(function(){
+            socket.emit("user-chat", $("#txtMessage").val());
+          });
+
+        });
+        //new room
+
         //new
         socket.on("server-send-dangki-thatbai", function(data){
       alert("User " + data + " is not availble!");
@@ -80,8 +126,8 @@ h1{text-align: center}
       $("#dsMsg").append(hoten + msg + "<div class='block'></div>");
     });
     socket.on("server_xuly_chocgheo", function(data){
-      alert(data + "vua moi choc ban :D");
-      //$( "body" ).effect( "shake" );
+      //alert(data + "vua moi choc ban :D");
+      $( "body" ).effect( "shake" );
     });
 
     $(document).ready(function(){
