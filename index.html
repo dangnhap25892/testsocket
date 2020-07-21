@@ -150,19 +150,21 @@ h1{text-align: center}
         socket.on("server-send-dangki-thatbai", function(data){
       alert("User " + data + " is not availble!");
     });
-    socket.on("server-send-dangki-thanhcong1", function(data){
+    socket.on("server-send-dangki-thanhcong", function(data){
       $("#kiemtralogin").show();
       var s = "<div socketid='"+data.id+"' class='motUser'>" + data.username + "</div>";
       $("#danhsachUsersOnline").append(s);
-  /*
+      });
+  
       // lỗi
-      socket.on("server-send-dangki1", function(data){
+      socket.on("server-send-dangki", function(data){
       var s = "<div class='motUser'>" + data + "</div>";
       $("#danhsachUsersOnline").append(s);
+      });
 //lỗi
-*/
+
       //hide form dang ki user
-    });
+    
     socket.on("server_gui_message", function(data){
       var hoten = "<span class='hoten'>" + data.Username + ": </span>";
       var msg =  "<span class='msg'>" + data.msg + "</span>";
