@@ -156,8 +156,7 @@ h1{text-align: center}
       $("#danhsachUsersOnline").append(s);
   
       // lỗi
-      socket.on("server-send-dangki", function(data){
-      $("#kiemtralogin").show();
+      socket.on("server-send-dangki1", function(data){
       var s = "<div class='motUser'>" + data + "</div>";
       $("#danhsachUsersOnline").append(s);
 //lỗi
