@@ -150,7 +150,7 @@ h1{text-align: center}
         socket.on("server-send-dangki-thatbai", function(data){
       alert("User " + data + " is not availble!");
     });
-    socket.on("server-send-dangki-thanhcong", function(data){
+    socket.on("server-send-dangki-thanhcong1", function(data){
       $("#kiemtralogin").show();
       var s = "<div socketid='"+data.id+"' class='motUser'>" + data.username + "</div>";
       $("#danhsachUsersOnline").append(s);
