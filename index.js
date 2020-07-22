@@ -105,6 +105,9 @@ socket.on("tao-room", function(data){
 	
 socket.on("client_gui_message", function(data){
     io.sockets.in(socket.Phong).emit("server_gui_message", {Username:socket.Username, msg:data});
+	
+    io.to(12345).emit("server_xuly_chocgheo", socket.Username);
+
   });
 
 
