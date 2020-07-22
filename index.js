@@ -60,7 +60,6 @@ io.on('connection', function(socket){
     for(r in socket.adapter.rooms){
       mang.push(r);
     }
-    io.sockets.emit("server-send-dangki", mang);
       io.sockets.emit("server-send-rooms", mang);
    //hiện room
     
