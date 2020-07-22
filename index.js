@@ -22,7 +22,7 @@ io.on('connection', function(socket){
 	
 	var length = mangUsersOnline.length;
   for (var i = 0; i < length; i++) {  
-    io.sockets.emit("server-send-dangki", mangUsersOnline[i]);
+    socket.emit("server-send-dangki", mangUsersOnline[i]);
   }
 	
    //socket.emit("server-send-dangki", mangUsersOnline);
