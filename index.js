@@ -19,9 +19,13 @@ io.on('connection', function(socket){
   }
 
 //hiện người online
+	var length = mangUsersOnline.length;
+  for (var i = 0; i < length; i++) {
+    //console.log(mangUsersOnline[i]);
+    socket.emit("server-send-dangki", mangUsersOnline[i]);
+  }
 	
-	
-   socket.emit("server-send-dangki", mangUsersOnline);
+   //socket.emit("server-send-dangki", mangUsersOnline);
 	/*
     io.sockets.emit("server-send-dangki", mangUsersOnline);
    // io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
