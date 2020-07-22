@@ -24,7 +24,7 @@ io.on('connection', function(socket){
 	for(r in socket.adapter.rooms){
       mangUsersOnline.push(r);
     }
-    io.sockets.emit("server-send-dangki-thanhcong", {username:mangUsersOnline, id:socket.id});
+   socket.emit("server-send-dangki", mangUsersOnline);
 	/*
     io.sockets.emit("server-send-dangki", mangUsersOnline);
    // io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
