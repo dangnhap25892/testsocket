@@ -52,7 +52,7 @@ io.on('connection', function(socket){
 	  
   });
   var mang=[];
-    for(r in mangUsersOnline){
+    for(r in socket.adapter.rooms){
       mangUsersOnline.push(r);
     }
     
