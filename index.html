@@ -71,10 +71,14 @@ h1{text-align: center}
         <input type="text" id="txtMessage" placeholder="Message..." />
         <input type="button" id="btnChat" value="Chat" />
       </div>
-
+  
 
 
     </div>
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="txtMessage" autocomplete="off" /><button>Send</button>
+    </form>
       <!-- new room1-->
     <!--
     <div id="right">
@@ -102,11 +106,13 @@ h1{text-align: center}
         <input type="button" id="btnChat" value="Chat" />
       </div>
     </div>
-    <!-- new-->
+
+    <!-- new
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
+    <!-- new-->
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
