@@ -37,7 +37,7 @@ io.on('connection', function(socket){
 	for (var i = 0; i < length; i++) {
     //console.log(mangUsersOnline[i]);
 		//xóa 1 phần tử tại vị trí i
-		if (mangUsersOnline[i]==socket.Username)
+		if (mangUsersOnline[i]===socket.Username)
 		{
 		mangUsersOnline.splice(i, 1); 
 		}
