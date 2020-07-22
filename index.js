@@ -8,6 +8,7 @@ app.get('/', function(req, res){
 });
 
 var mangUsersOnline = [];
+var mang=[];
 
 io.on('connection', function(socket){
   
@@ -51,11 +52,10 @@ io.on('connection', function(socket){
   */
 	  
   });
-  var mang=[];
+  
     for(r in socket.adapter.rooms){
       mangUsersOnline.push(r);
     }
-    
       io.sockets.emit("server-send-rooms", mangUsersOnline);
   //hiện room
 	/*
@@ -109,6 +109,12 @@ socket.on("client_gui_message", function(data){
     if( mangUsersOnline.indexOf(data)>=0){
       socket.emit("server-send-dangki-thatbai", data);
     }else{
+	    //thử 
+	for(r in socket.adapter.rooms){
+      mangUsersOnline.push(r);
+    }
+      io.sockets.emit("server-send-rooms", mangUsersOnline);
+	    //thử
       mangUsersOnline.push(data);
       socket.Username = data;
      io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
