@@ -34,6 +34,11 @@ io.on('connection', function(socket){
     
   socket.on('disconnect', function(){
     io.emit('chat message', socket.Username);
+	for (var i = 0; i < length; i++) {
+    //console.log(mangUsersOnline[i]);
+    io.emit("server-send-dangki", mangUsersOnline[i]);
+  }
+	  
   });
   
   //hiện room
