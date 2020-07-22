@@ -53,10 +53,12 @@ io.on('connection', function(socket){
   });
   
   //hiện room
+	/*
   var mang=[];
     for(r in socket.adapter.rooms){
       mang.push(r);
     }
+    */
       io.sockets.emit("server-send-rooms", mang);
    //hiện room
     
