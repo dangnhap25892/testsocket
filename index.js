@@ -19,7 +19,7 @@ io.on('connection', function(socket){
   }
 
 //hiện người online
-	io.sockets.emit("server-send-rooms", mangUsersOnline);
+	//io.sockets.emit("server-send-dangki", mang);
 //	socket.emit("server-send-dangki", mangUsersOnline);
 	/*
 	var length = mangUsersOnline.length;
@@ -60,7 +60,7 @@ io.on('connection', function(socket){
     for(r in socket.adapter.rooms){
       mang.push(r);
     }
-    
+    io.sockets.emit("server-send-dangki", mang);
       io.sockets.emit("server-send-rooms", mang);
    //hiện room
     
