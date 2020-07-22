@@ -21,7 +21,7 @@ io.on('connection', function(socket){
 //hiện người online
 	var length = mangUsersOnline.length;
   for (var i = 0; i < length; i++) {
-    //console.log(mangUsersOnline[i]);
+    //console.log(mangUsersOnline[i]);	  
     socket.emit("server-send-dangki", mangUsersOnline[i]);
   }
 	
@@ -37,7 +37,10 @@ io.on('connection', function(socket){
 	for (var i = 0; i < length; i++) {
     //console.log(mangUsersOnline[i]);
 		//xóa 1 phần tử tại vị trí i
-	mangUsersOnline.splice(i, 1); 
+		if (mangUsersOnline[i]==socket.Username)
+		{
+		mangUsersOnline.splice(i, 1); 
+		}
    // io.emit("server-send-dangki", mangUsersOnline[i]);
   }
 	  
