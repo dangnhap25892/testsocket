@@ -19,7 +19,8 @@ io.on('connection', function(socket){
   }
 
 //hiện người online
-	socket.emit("server-send-dangki", mangUsersOnline);
+	io.sockets.emit("server-send-rooms", mangUsersOnline);
+//	socket.emit("server-send-dangki", mangUsersOnline);
 	/*
 	var length = mangUsersOnline.length;
   for (var i = 0; i < length; i++) {
