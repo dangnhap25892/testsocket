@@ -127,7 +127,7 @@ socket.on("client_gui_message", function(data){
 	mangtest.push({username:data, id:socket.id});
       socket.Username = data;
      io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
-     io.sockets.emit("dangkithanhcong", 'hi');
+     socket.emit("dangkithanhcong", 'hi');
 
     }
   });
