@@ -105,16 +105,18 @@ socket.on("client_gui_message", function(data){
 
   
   socket.on("client_gui_username", function(data){
-    console.log("Co nguoi dang ki username la: " + data);
-    if( mangUsersOnline.indexOf(data)>=0){
-      socket.emit("server-send-dangki-thatbai", data);
-    }else{
-	    //thử 
+	  //thử 
 	for(r in socket.adapter.rooms){
       mangUsersOnline.push(r);
     }
       io.sockets.emit("server-send-rooms", mangUsersOnline);
 	    //thử
+	  
+    console.log("Co nguoi dang ki username la: " + data);
+    if( mangUsersOnline.indexOf(data)>=0){
+      socket.emit("server-send-dangki-thatbai", data);
+    }else{
+	    
       mangUsersOnline.push(data);
       socket.Username = data;
      io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
