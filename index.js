@@ -36,7 +36,9 @@ io.on('connection', function(socket){
     io.emit('chat message', socket.Username);
 	for (var i = 0; i < length; i++) {
     //console.log(mangUsersOnline[i]);
-    io.emit("server-send-dangki", mangUsersOnline[i]);
+		//xóa 1 phần tử tại vị trí i
+	mangUsersOnline.splice(i, 1); 
+   // io.emit("server-send-dangki", mangUsersOnline[i]);
   }
 	  
   });
