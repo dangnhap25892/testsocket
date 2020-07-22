@@ -9,6 +9,7 @@ app.get('/', function(req, res){
 
 var mangUsersOnline = [];
 var mang=[];
+var mangtest=[];
 
 io.on('connection', function(socket){
   
@@ -21,10 +22,16 @@ io.on('connection', function(socket){
 
 //hiện người online
 	
+	var length = mangtest.length;
+  for (var i = 0; i < length; i++) {  
+    socket.emit("server-send-dangki-thanhcong", mangtest[i]);
+  }
+	/*
 	var length = mangUsersOnline.length;
   for (var i = 0; i < length; i++) {  
     socket.emit("server-send-dangki", mangUsersOnline[i]);
   }
+  */
 	
    //socket.emit("server-send-dangki", mangUsersOnline);
 	/*
@@ -121,6 +128,7 @@ socket.on("client_gui_message", function(data){
     }else{
 	    
       mangUsersOnline.push(data);
+	mangtest.push({username:data, id:socket.id});
       socket.Username = data;
      io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
 	     //thử 
