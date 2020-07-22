@@ -51,17 +51,22 @@ io.on('connection', function(socket){
   */
 	  
   });
-  
+  var mang=[];
+    for(r in mangUsersOnline){
+      mangUsersOnline.push(r);
+    }
+    
+      io.sockets.emit("server-send-rooms", mangUsersOnline);
   //hiện room
 	/*
   var mang=[];
     for(r in socket.adapter.rooms){
       mang.push(r);
     }
-    */
+    
       io.sockets.emit("server-send-rooms", mang);
    //hiện room
-    
+  */  
   
   
   socket.on('chat message', function(msg){
