@@ -19,15 +19,12 @@ io.on('connection', function(socket){
   }
 
 //hiện người online
-	//io.sockets.emit("server-send-dangki", mang);
-//	socket.emit("server-send-dangki", mangUsersOnline);
 	
 	var length = mangUsersOnline.length;
-  for (var i = 0; i < length; i++) {
-    //console.log(mangUsersOnline[i]);	  
+  for (var i = 0; i < length; i++) {  
     socket.emit("server-send-dangki", mangUsersOnline[i]);
-  
-	*/
+  }
+	
    //socket.emit("server-send-dangki", mangUsersOnline);
 	/*
     io.sockets.emit("server-send-dangki", mangUsersOnline);
