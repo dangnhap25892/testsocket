@@ -75,7 +75,7 @@ io.on('connection', function(socket){
   
     
   //hiện room
-	/*
+	
   var mang=[];
     for(r in socket.adapter.rooms){
       mang.push(r);
@@ -83,7 +83,7 @@ io.on('connection', function(socket){
     
       io.sockets.emit("server-send-rooms", mang);
    //hiện room
-  */  
+  
   
   
   socket.on('chat message', function(msg){
