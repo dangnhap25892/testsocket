@@ -19,12 +19,12 @@ io.on('connection', function(socket){
   }
 
 //hiện người online
-	/*
+	
 	var mangUsersOnline = [];
 	for(r in socket.adapter.rooms){
       mangUsersOnline.push(r);
     }
-    */
+    io.sockets.emit("server-send-dangki-thanhcong", {username:mangUsersOnline, id:socket.id});
 	/*
     io.sockets.emit("server-send-dangki", mangUsersOnline);
    // io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
