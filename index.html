@@ -122,8 +122,8 @@ h1{text-align: center}
          socket.on("server-send-dangki-thanhcong", function(data){
         $("#danhsachUsersOnline").html("");
           
-        data.map(function(r){
-          var count = r.length;
+        data.map(function(data){
+          var count = data.length;
             if(1 != 20)
             {
       var s = "<div socketid='"+data.id+"' class='motUser'>" + data.username + "</div>";
