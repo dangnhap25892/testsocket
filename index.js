@@ -39,6 +39,13 @@ io.on('connection', function(socket){
 	  //
 	 var hu = mangUsersOnline.indexOf(hi);
 	  mangUsersOnline.splice( hu, 1); 
+	  
+	   //thử 
+	for(r in socket.adapter.rooms){
+      mangUsersOnline.push(r);
+    }
+      io.sockets.emit("server-send-rooms", mangUsersOnline);
+	    //thử
 	  /* hàm for
 	for (var i = 0; i < length; i++) {
     //console.log(mangUsersOnline[i]);
