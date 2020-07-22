@@ -14,7 +14,7 @@ var mangtest=[];
 io.on('connection', function(socket){
   
   //kiemtra login
- if (socket.Username == undefined)
+ if (socket.Username === undefined)
   {
     socket.emit('login', 'đã không có');
 
