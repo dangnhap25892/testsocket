@@ -200,17 +200,26 @@ h1{text-align: center}
       });
     });
         //new
-        
         $('form').submit(function(){
-          socket.emit('chat message', $('#m').val());
-          $('#m').val('');
+          socket.emit("client_gui_message", $("#txtMessage").val());
+
+         // socket.emit('chat message', $('#m').val());
+          $('#txtMessage').val('');
           return false;
         });
+        
         //new login
         socket.on('login', function(msg){
           $("#kiemtralogin").hide();
         });
         //newloginj
+        /*
+        $('form').submit(function(){
+          socket.emit('chat message', $('#m').val());
+          $('#m').val('');
+          return false;
+        });
+        */
         socket.on('chat message', function(msg){
           $('#messages').append($('<li>').text(msg));
           window.scrollTo(0, document.body.scrollHeight);
