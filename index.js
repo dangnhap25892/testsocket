@@ -33,7 +33,7 @@ io.on('connection', function(socket){
 	*/
     
   socket.on('disconnect', function(){
-    io.emit('chat message', socket.Username 'đã thoát');
+    io.emit('chat message', socket.Username);
   });
   
   //hiện room
