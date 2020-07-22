@@ -102,11 +102,9 @@ socket.on("tao-room", function(data){
     io.sockets.in(socket.Phong).emit("server-chat", data);
   });
 //new room
+	
 socket.on("client_gui_message", function(data){
-    
-     
-  
-    io.sockets.in(socket.Phong).emit("server_gui_message", {Username:socket.Username, msg:data});
+    io.sockets.in(1345).emit("server_gui_message", {Username:socket.Username, msg:data});
   });
 
 
