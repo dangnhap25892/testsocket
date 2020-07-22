@@ -48,6 +48,10 @@ io.on('connection', function(socket){
 	 var hu = mangUsersOnline.indexOf(hi);
 	  mangUsersOnline.splice( hu, 1); 
 	  
+	  var length = mangtest.length;
+  for (var i = 0; i < length; i++) {  
+    socket.emit("server-send-dangki-thanhcong", mangtest[i]);
+  }
 	  /* khongog dung nữa //thử 
 	for(r in socket.adapter.rooms){
       mangUsersOnline.push(r);
