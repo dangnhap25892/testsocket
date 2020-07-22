@@ -37,7 +37,7 @@ io.on('connection', function(socket){
 	  var hi = socket.Username;
 	  //
 	 var hu = mangUsersOnline.indexOf(hi);
-	  mangUsersOnline.splice( i, 1); 
+	  mangUsersOnline.splice( hu, 1); 
 	  /* hàm for
 	for (var i = 0; i < length; i++) {
     //console.log(mangUsersOnline[i]);
