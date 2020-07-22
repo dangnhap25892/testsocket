@@ -201,10 +201,10 @@ h1{text-align: center}
     });
         //new
         $('form').submit(function(){
-          socket.emit("client_gui_message", $("#txtMessage").val());
+          socket.emit("client_gui_message", $("#m").val());
 
          // socket.emit('chat message', $('#m').val());
-          $('#txtMessage').val('');
+          $('#m').val('');
           return false;
         });
         
