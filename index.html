@@ -77,7 +77,7 @@ h1{text-align: center}
     </div>
     <ul id="messages"></ul>
     <form action="">
-      <input id="txtMessage1" autocomplete="off" /><button id="btnChat">Send</button>
+      <input id="m" autocomplete="off" /><button id="btnChat">Send</button>
     </form>
       <!-- new room1-->
     <!--
@@ -201,8 +201,8 @@ h1{text-align: center}
     });
         //new
         $('form').submit(function(){
-          socket.emit("client_gui_message", $("#txtMessage1").val());
-          $('#txtMessage1').val('');
+          socket.emit("client_gui_message", $("#m").val());
+          $('#m').val('');
           return false;
         });
         
