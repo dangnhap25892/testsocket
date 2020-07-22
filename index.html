@@ -119,25 +119,14 @@ h1{text-align: center}
       $(function () {
         var socket = io();
 
-         socket.on("server-send-dangki-thanhcong", function(data){
-        $("#danhsachUsersOnline").html("");
-          
-        data.map(function(data){
-          var count = data.length;
-            if(1 != 20)
-            {
-      var s = "<div socketid='"+data.id+"' class='motUser'>" + data.username + "</div>";
-      $("#danhsachUsersOnline").append(s);
-            }
-          });
-      });
+         
         //bew rôm
         socket.on("server-send-rooms", function(data){
         $("#dsRoom").html("");
           
         data.map(function(r){
           var count = r.length;
-            if(1 != 20)
+            if(count != 20)
             {
           $("#dsRoom").append("<h4 class='room'>" + r + "</h4>");
             }
@@ -172,13 +161,13 @@ h1{text-align: center}
     });
        
        //  $("#danhsachUsersOnline").html("");
-        /*
+        
     socket.on("server-send-dangki-thanhcong", function(data){
  
       var s = "<div socketid='"+data.id+"' class='motUser'>" + data.username + "</div>";
       $("#danhsachUsersOnline").append(s);
       });
-      */
+      
         socket.on("dangkithanhcong", function(data){
  
       $("#kiemtralogin").show();
