@@ -47,12 +47,13 @@ io.on('connection', function(socket){
 	 var hu = mangUsersOnline.indexOf(hi);
 	  mangUsersOnline.splice( hu, 1); 
 	  
-	   //thử 
+	  /* khongog dung nữa //thử 
 	for(r in socket.adapter.rooms){
       mangUsersOnline.push(r);
     }
       io.sockets.emit("server-send-rooms", mangUsersOnline);
-	    //thử
+	    //thử */
+	  
 	  /* hàm for
 	for (var i = 0; i < length; i++) {
     //console.log(mangUsersOnline[i]);
@@ -112,9 +113,6 @@ socket.on("tao-room", function(data){
 	
 socket.on("client_gui_message", function(data){
     io.sockets.in(socket.Phong).emit("server_gui_message", {Username:socket.Username, msg:data});
-	
-    io.to(12345).emit("server_xuly_chocgheo", socket.Username);
-
   });
 
 
@@ -131,12 +129,6 @@ socket.on("client_gui_message", function(data){
 	mangtest.push({username:data, id:socket.id});
       socket.Username = data;
      io.sockets.emit("server-send-dangki-thanhcong", {username:data, id:socket.id});
-	     //thử 
-	for(r in socket.adapter.rooms){
-      mangUsersOnline.push(r);
-    }
-      io.sockets.emit("server-send-rooms", mangUsersOnline);
-	    //thử
     }
   });
 /*
