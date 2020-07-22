@@ -22,11 +22,17 @@ io.on('connection', function(socket){
 
 //hiện người online
 	
+	
+    for(r in socket.adapter.rooms){
+      mangtest.push(r);
+    }
+      io.sockets.emit("server-send-rooms", mangtest);
+	/*
 	var length = mangtest.length;
   for (var i = 0; i < length; i++) {  
     socket.emit("server-send-dangki-thanhcong", mangtest[i]);
   }
-  
+  */
 	/*
 	var length = mangUsersOnline.length;
   for (var i = 0; i < length; i++) {  
