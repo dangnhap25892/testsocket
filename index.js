@@ -205,35 +205,35 @@ io.on('connection', function(socket){
 
 
 
-
+///tới đây
 
 
 	//new2
 	console.log("co nguoi ket noi:" + socket.id)
     //lang nghe su kien tu client gui len
     socket.on("client-send-name", function (data) {
-        if (mangUser.length > 2) {
+        if (mangUser.in(socket.Phong).length > 2) {
             socket.emit("send-dki-that-bai")
         }
         else {
-            mangUser.push(data);
-            socket.Username = data;
-            io.sockets.in(socket.Phong).emit("server-send-danhsach-user", mangUser)
+            mangUser.in(socket.Phong).push(data);
+            socket.Username.in(socket.Phong) = data;
+            io.sockets.in(socket.Phong).emit("server-send-danhsach-user", mangUser.in(socket.Phong))
         }
     })
 
     socket.on("su-kien-click", function (data) {
-        let vitri = mangUser.indexOf(socket.Username)
+        let vitri = mangUser.in(socket.Phong).indexOf(socket.Username.in(socket.Phong))
         let Columb = data.x / 50;
         let Row = data.y / 50;
         //Kiem tra khong cho nguoi choi gui du lieu 2 lan lien tuc len server
-        if (socket.Username !== mangnguoichoi[0]) {
-            mangnguoichoi.unshift(socket.Username);
+        if (socket.Username.in(socket.Phong) !== mangnguoichoi[0]) {
+            mangnguoichoi.unshift(socket.Username.in(socket.Phong));
             if (vitri === 0) {
                 if (Arr_Board[Row][Columb] === 0) {
                     Arr_Board[Row][Columb] = 1;
                     io.sockets.in(socket.Phong).emit("server-send-data", {
-                        name: socket.Username,
+                        name: socket.Username.in(socket.Phong),
                         x: data.x,
                         y: data.y,
                         nguoichoi: vitri,
