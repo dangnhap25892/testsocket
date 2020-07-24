@@ -177,6 +177,7 @@ io.on('connection', function(socket){
        //new rom
     socket.on("tao-room", function(data){
     socket.leave(socket.Phong);
+
     socket.join(data);
 
     socket.Phong=data;
@@ -188,7 +189,7 @@ io.on('connection', function(socket){
     
     
   
-    io.sockets.emit("server-send-rooms", mang);
+    io.sockets.emit("server-send-rooms", socket.join(data));
     socket.emit("server-send-room-socket", data);
 
   });
