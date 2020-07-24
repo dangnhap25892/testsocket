@@ -282,7 +282,7 @@ io.on('connection', function(socket){
 
   socket.on('chat message', function(msg){
    // io.emit('chat message', msg);
-   io.sockets.emit('chat message', socket.Phong);
+   io.sockets.in(socket.Phong).emit('chat message', msg);
   });
 
 
