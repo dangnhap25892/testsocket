@@ -214,7 +214,7 @@ io.on('connection', function(socket){
         else {
             mangUser.push(data);
             socket.Username = data;
-            io.sockets.emit("server-send-danhsach-user", mangUser)
+            io.sockets.in(socket.Phong).emit("server-send-danhsach-user", mangUser)
         }
     })
 
@@ -228,7 +228,7 @@ io.on('connection', function(socket){
             if (vitri === 0) {
                 if (Arr_Board[Row][Columb] === 0) {
                     Arr_Board[Row][Columb] = 1;
-                    io.sockets.emit("server-send-data", {
+                    io.sockets.in(socket.Phong).emit("server-send-data", {
                         name: socket.Username,
                         x: data.x,
                         y: data.y,
@@ -240,8 +240,8 @@ io.on('connection', function(socket){
                     if(Horizontal(Arr_Board, Row, Columb, 1) || Vertically(Arr_Board, Row, Columb, 1) ||
                     Diagonal(Arr_Board, Row, Columb, 1) || Diagonal_main(Arr_Board, Row, Columb, 1)){
                         string = "BAN DA THUA CUOC";
-                        socket.broadcast.emit("khong-cho-doi-thu-click-khi-thua");
-                        socket.broadcast.emit("phat-su-kien-thang-thua", string);
+                        socket.broadcast.in(socket.Phong).emit("khong-cho-doi-thu-click-khi-thua");
+                        socket.broadcast.in(socket.Phong).emit("phat-su-kien-thang-thua", string);
                     }
                     
 
@@ -250,7 +250,7 @@ io.on('connection', function(socket){
             else {
                 if (Arr_Board[Row][Columb] === 0) {
                     Arr_Board[Row][Columb] = 2;
-                    io.sockets.emit("server-send-data", {
+                    io.sockets.in(socket.Phong).emit("server-send-data", {
                         name: socket.Username,
                         x: data.x,
                         y: data.y,
@@ -262,8 +262,8 @@ io.on('connection', function(socket){
                     if(Horizontal(Arr_Board, Row, Columb, 2) || Vertically(Arr_Board, Row, Columb, 2) ||
                         Diagonal(Arr_Board, Row, Columb, 2) || Diagonal_main(Arr_Board, Row, Columb, 2)){
                         string = "BAN DA THUA CUOC";
-                        socket.broadcast.emit("khong-cho-doi-thu-click-khi-thua");
-                        socket.broadcast.emit("phat-su-kien-thang-thua", string);
+                        socket.broadcast.in(socket.Phong).emit("khong-cho-doi-thu-click-khi-thua");
+                        socket.broadcast.in(socket.Phong).emit("phat-su-kien-thang-thua", string);
                     }
                     
                 }
@@ -275,7 +275,8 @@ io.on('connection', function(socket){
 
 
   socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
+   // io.emit('chat message', msg);
+   io.sockets.in(socket.Phong).emit('chat message', msg);
   });
 
 
