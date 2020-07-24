@@ -153,8 +153,7 @@ socket.on("server-send-data", function (data) {
         console.log("Gia tri cua nguoi choi:"+ data.value)
         console.log("x_client:" + data.x);
         console.log("y_client:" + data.y);
-        var s = "<div class='motUser'>"+data.name +"</div>";
-        $("#dulieu").append(s);
+        
         let matrix = data.Board;
         let Cur_Row = parseInt(data.x);
         let Cur_Col = parseInt(data.y);
