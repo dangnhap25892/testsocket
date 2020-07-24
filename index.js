@@ -205,7 +205,7 @@ io.on('connection', function(socket){
 
 
 
-///tới đay
+///tới d
 
 
 	//new2
@@ -216,9 +216,9 @@ io.on('connection', function(socket){
             socket.emit("send-dki-that-bai")
         }
         else {
-            mangUser.in(socket.Phong).push(data);
-            socket.Username.in(socket.Phong) = data;
-            io.sockets.in(socket.Phong).emit("server-send-danhsach-user", mangUser.in(socket.Phong))
+            mangUser.push(data);
+            socket.Username = data;
+            io.sockets.in(socket.Phong).emit("server-send-danhsach-user", mangUser)
         }
     })
 
@@ -280,7 +280,7 @@ io.on('connection', function(socket){
 
   socket.on('chat message', function(msg){
    // io.emit('chat message', msg);
-   io.sockets.in(socket.Phong).emit('chat message', socket.Phong);
+   io.sockets.in(socket.Phong).emit('chat message', mang);
   });
 
 
