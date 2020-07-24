@@ -178,6 +178,7 @@ io.on('connection', function(socket){
     socket.on("tao-room", function(data){
     socket.leave(socket.Phong);
     socket.join(data);
+    
     socket.Phong=data;
 
     var mang=[];
@@ -280,7 +281,7 @@ io.on('connection', function(socket){
 
   socket.on('chat message', function(msg){
    // io.emit('chat message', msg);
-   io.sockets.in(socket.Phong).emit('chat message', mang);
+   io.sockets.in(socket.Phong).emit('chat message', in(socket.Phong));
   });
 
 
