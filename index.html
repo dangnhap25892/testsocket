@@ -24,6 +24,11 @@
     
   </head>
   <body>
+    <div id="kiemtralogin">
+    <input type="text" id="txtRoom" />
+    <input type="button" id="btnTaoRoom" value="Tạo room">
+    <div id="left">
+
      <h3>ROOMS ĐANG CÓ</h3>
       <div id="dsRoom"></div>
 <!-- new room1-->
@@ -34,6 +39,7 @@
       <!-- new room1-->
     </div>
     <h4 id="roomHienTai">...</h4>
+
     <!-- new-->
     <div id="loginForm" style="margin-bottom: 30px " class="text-center">
     <h3>CHƯƠNG TRÌNH CHƠI CỜ CARO </h3>
@@ -99,7 +105,7 @@
 
 
 
-        
+
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val());
           $('#m').val('');
