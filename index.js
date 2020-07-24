@@ -216,8 +216,8 @@ io.on('connection', function(socket){
             socket.emit("send-dki-that-bai")
         }
         else {
-            mangUser.push(data);
-            socket.Username = data;
+            mangUser.in(socket.Phong).push(data);
+            socket.Username.in(socket.Phong) = data;
             io.sockets.in(socket.Phong).emit("server-send-danhsach-user", mangUser.in(socket.Phong))
         }
     })
