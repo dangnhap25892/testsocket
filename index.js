@@ -186,8 +186,12 @@ io.on('connection', function(socket){
     for(r in socket.adapter.rooms){
       mang.push(r);
     }
+    //new
+    mangUser.push(data);
+            socket.Username = data;
+            io.sockets.in(socket.Phong).emit("server-send-danhsach-user", mangUser)
     
-    
+    //new
   
     io.sockets.emit("server-send-rooms", mang);
     socket.emit("server-send-room-socket", data);
