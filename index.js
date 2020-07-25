@@ -186,12 +186,7 @@ io.on('connection', function(socket){
     for(r in socket.adapter.rooms){
       mang.push(r);
     }
-    //new
-    mangUser.push(data);
-            socket.Username = data;
-            io.sockets.in(socket.Phong).emit("server-send-danhsach-user", mangUser)
     
-    //new
   
     io.sockets.emit("server-send-rooms", mang);
     socket.emit("server-send-room-socket", data);
@@ -218,7 +213,7 @@ io.on('connection', function(socket){
 	console.log("co nguoi ket noi:" + socket.id)
     //lang nghe su kien tu client gui len
     socket.on("client-send-name", function (data) {
-        if (mangUser.length > 2) {
+        if (mangUser.length > 5) {
             socket.emit("send-dki-that-bai")
         }
         else {
